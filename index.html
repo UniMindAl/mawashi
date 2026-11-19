@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مواشي | MAWASHI</title>
+<style>
+:root {
+  --navy: #111D32;
+  --gold: #C6A96B;
+  --cream: #F7F5F0;
+  --green: #527A63;
+  --white: #FFFFFF;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+}
+header {
+  background: var(--navy);
+  color: white;
+  padding: 20px 6%;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+  color: var(--gold);
+}
+.logo small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: white;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 14px;
+}
+.hero {
+  padding: 55px 7%;
+  text-align: center;
+  background: linear-gradient(135deg, #111D32, #263B59);
+  color: white;
+}
+.hero h1 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+.hero p {
+  color: #E3D9C4;
+  line-height: 1.9;
+}
+.search {
+  background: white;
+  max-width: 650px;
+  margin: 25px auto 0;
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  gap: 8px;
+}
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  padding: 12px;
+  font-size: 15px;
+}
+button {
+  background: var(--gold);
+  color: var(--navy);
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+section {
+  padding: 35px 6%;
+}
+.section-title {
+  font-size: 23px;
+  margin-bottom: 22px;
+}
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.category {
+  background: white;
+  padding: 22px 8px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #E8E1D3;
+  font-weight: bold;
+}
+.category span {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 9px;
+}
+.listings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.listing {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #E8E1D3;
+}
+.photo {
+  height: 150px;
+  background: #E8E4DB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #655B4A;
+  text-align: center;
+  padding: 12px;
+}
+.details { padding: 15px; }
+.details h3 { margin: 0 0 10px; }
+.price {
+  color: var(--green);
+  font-weight: bold;
+  margin: 10px 0;
+}
+.city { color: #777; font-size: 13px; }
+.info {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  line-height: 2;
+}
+footer {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 25px 12px;
+  line-height: 2;
+}
+footer strong { color: var(--gold); }
+@media(max-width:650px) {
+  nav { margin-top: 10px; }
+  nav a { margin: 0 4px; font-size: 12px; }
+  .hero h1 { font-size: 27px; }
+  .categories { grid-template-columns: repeat(2, 1fr); }
+  .listings { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top">
+    <div class="logo">
+      مواشي
+      <small>MAWASHI</small>
+    </div>
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#categories">الأقسام</a>
+      <a href="#listings">الإعلانات</a>
+      <a href="#about">عن المنصة</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="home">
+  <h1>سوق المواشي أصبح أقرب إليك</h1>
+  <p>اكتشف المواشي المعروضة للبيع وتواصل مباشرة مع البائعين في ليبيا.</p>
+  <div class="search">
+    <input id="searchInput" type="text" placeholder="ابحث عن نوع المواشي...">
+    <button onclick="searchListings()">بحث</button>
+  </div>
+</div>
+
+<section id="categories">
+  <h2 class="section-title">أقسام المواشي</h2>
+  <div class="categories">
+    <div class="category"><span>🐑</span>الأغنام</div>
+    <div class="category"><span>🐐</span>الماعز</div>
+    <div class="category"><span>🐄</span>الأبقار</div>
+    <div class="category"><span>🐪</span>الإبل</div>
+  </div>
+</section>
+
+<section id="listings">
+  <h2 class="section-title">الإعلانات</h2>
+  <div class="listings" id="listingCards">
+    <article class="listing">
+      <div class="photo">مساحة صورة الإعلان الحقيقي</div>
+      <div class="details">
+        <h3>إعلان تجريبي للأغنام</h3>
+        <p>سيظهر وصف المواشي هنا.</p>
+        <div class="price">السعر عند التواصل</div>
+        <div class="city">📍 مصراتة - ليبيا</div>
+      </div>
+    </article>
+    <article class="listing">
+      <div class="photo">مساحة صورة الإعلان الحقيقي</div>
+      <div class="details">
+        <h3>إعلان تجريبي للماعز</h3>
+        <p>سيظهر وصف المواشي هنا.</p>
+        <div class="price">السعر عند التواصل</div>
+        <div class="city">📍 طرابلس - ليبيا</div>
+      </div>
+    </article>
+    <article class="listing">
+      <div class="photo">مساحة صورة الإعلان الحقيقي</div>
+      <div class="details">
+        <h3>إعلان تجريبي للأبقار</h3>
+        <p>سيظهر وصف المواشي هنا.</p>
+        <div class="price">السعر عند التواصل</div>
+        <div class="city">📍 بنغازي - ليبيا</div>
+      </div>
+    </article>
+  </div>
+  <p style="font-size:12px;color:#777">
+    هذه بطاقات تجريبية للتصميم وليست إعلانات بيع حقيقية.
+  </p>
+</section>
+
+<section id="about">
+  <h2 class="section-title">عن مواشي</h2>
+  <div class="info">
+    مواشي منصة رقمية متخصصة في بيع وشراء المواشي،
+    تهدف إلى تسهيل الوصول إلى البائعين والمشترين
+    في مكان واحد بطريقة منظمة وسهلة.
+    <br>
+    البداية من مصراتة، ثم التوسع إلى جميع المدن الليبية.
+  </div>
+</section>
+
+<footer>
+  <strong>MAWASHI | مواشي</strong>
+  <br>
+  مشروع بواسطة NEXORA
+  <br>
+  Building Tomorrow, Digitally.
+</footer>
+
+<script>
+function searchListings() {
+  const value = document.getElementById("searchInput").value.trim();
+  if (!value) {
+    alert("اكتب نوع المواشي الذي تبحث عنه");
+    return;
+  }
+  const cards = document.querySelectorAll(".listing");
+  let found = 0;
+  cards.forEach(card => {
+    const match = card.innerText.includes(value);
+    card.style.display = match ? "" : "none";
+    if (match) found++;
+  });
+  if (!found) alert("لا توجد نتائج مطابقة في الإعلانات التجريبية");
+}
+</script>
+
+</body>
+</html>
