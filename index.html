@@ -275,5 +275,14 @@ function searchListings() {
 }
 </script>
 
+<script>
+if ("serviceWorker" in navigator) {
+window.addEventListener("load", () => {
+navigator.serviceWorker.register("/mawashi/service-worker.js")
+.then(() => console.log("MAWASHI App Ready"))
+.catch((error) => console.error("Service Worker Error:", error));
+});
+}
+</script>
 </body>
 </html>
